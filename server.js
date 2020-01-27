@@ -21,12 +21,16 @@ app.use(express.json());
 // setting up handlebars main view
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+require("./routes/buildRoutes")(app);
 
 // connect to mongoDB using mongoose
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/buildsheetdb"
 mongoose.connect(MONGODB_URI);
 
 app.get("/", function(req, res) {
+    // db.Part.find({status: "todo"}.then(function(showAllTodo) {
+    //     res.render("index", {Parts: showAllTodo})
+    // }))
     res.render("index")
 })
 
