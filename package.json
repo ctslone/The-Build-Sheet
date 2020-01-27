@@ -1,0 +1,27 @@
+{
+  "name": "the-build-sheet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express-handlebars": "^3.1.0",
+    "express": "^4.17.1",
+    "mongojs": "^3.1.0",
+    "mongoose": "^5.8.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctslone/The-Build-Sheet.git"
+  },
+  "author": "Charlie Slone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ctslone/The-Build-Sheet/issues"
+  },
+  "homepage": "https://github.com/ctslone/The-Build-Sheet#readme"
+}
