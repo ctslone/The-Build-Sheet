@@ -27,7 +27,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/buildsheetdb"
 mongoose.connect(MONGODB_URI);
 
 app.get("/", function(req, res) {
-    res.send("working")
+    res.render("index")
 })
 
 app.listen(PORT, function () {
