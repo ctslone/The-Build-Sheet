@@ -69,7 +69,7 @@
                                 placeholder="Perrin Air/Oil Separator">
                         </div>
                         <div class="form-group">
-                            <label for="partTypeSelect">Example select</label>
+                            <label for="partTypeSelect">Part type select</label>
                             <select class="form-control" id="partTypeSelect">
                                 <option>Drivetrain</option>
                                 <option>Wheels/Tires/Suspension</option>
@@ -88,11 +88,19 @@
                             <label for="inputComment">Notes</label>
                             <textarea placeholder="Install time, tools required, etc..." class="form-control" id="inputComment" rows="3"></textarea>
                         </div>
+                        <div class="form-group">
+                            <label for="statusSelect">Status select</label>
+                            <select class="form-control" id="statusSelect">
+                                <option>To Do</option>
+                                <option>In Progress</option>
+                                <option>Done</option>
+                            </select>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="/addpart" type="button" class="btn btn-primary">Add to build sheet</a>
+                    <a type="button" class="btn btn-primary addPartBtn">Add to build sheet</a>
                 </div>
             </div>
         </div>

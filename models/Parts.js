@@ -9,7 +9,6 @@ var PartSchema = new Schema({
     },
     link: {
         type: String,
-        required: true
     },
     partType: {
         type: String,

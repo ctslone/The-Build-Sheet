@@ -8,7 +8,7 @@ var mongoose = require("mongoose");
 var app = express();
 
 // models
-// var db = require("./models")
+var db = require("./models")
 
 // server
 var PORT = process.env.PORT || 3000;
@@ -28,10 +28,10 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/buildsheetdb"
 mongoose.connect(MONGODB_URI);
 
 app.get("/", function(req, res) {
-    // db.Part.find({status: "todo"}.then(function(showAllTodo) {
-    //     res.render("index", {Parts: showAllTodo})
-    // }))
-    res.render("index")
+    db.Parts.find({status: "To Do"}).then(function(showAllTodo) {
+        console.log(showAllTodo)
+        res.render("index", {Parts: showAllTodo})
+    })
 })
 
 app.listen(PORT, function () {

@@ -9,7 +9,9 @@
     "mongojs": "^3.1.0",
     "mongoose": "^5.8.9"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "handlebars": "^4.5.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
