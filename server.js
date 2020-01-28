@@ -29,7 +29,7 @@ mongoose.connect(MONGODB_URI);
 
 app.get("/", function(req, res) {
     db.Parts.find({status: "To Do"}).then(function(showAllTodo) {
-        console.log(showAllTodo)
+        // console.log(showAllTodo)
         res.render("index", {Parts: showAllTodo})
     })
 })
