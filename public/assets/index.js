@@ -13,12 +13,19 @@ $(document).ready(function() {
             url: "/addPart",
             data: newPartObject,
             type: "POST"
-        }).then(function(data) {
-            console.log("add part success")
-        }).then(function() {
-            location.reload()
-        })
+        });
+        console.log("add part success")
+        location.reload()
+        
+
     })
+
+    $(document).on("click", ".toDoBtn", function() {
+        var thisID = $(this).attr("data-_id");
+        // console.log(thisID);
+        moveToDo(thisID);
+        location.reload()
+    });
 
     $(document).on("click", ".toProgressBtn", function() {
         var thisID = $(this).attr("data-_id");
@@ -47,6 +54,14 @@ $(document).ready(function() {
 
 
     // FUNCTIONS
+    function moveToDo(partID) {
+        $.ajax({
+            url: "/movetodone/" +partID,
+            type: "PUT"
+        }).then(function(data) {
+            console.log("changed to do")
+        })
+    }
     function moveToProgress(partID) {
         $.ajax({
             url: "/movetoinprogress/" + partID,
@@ -73,11 +88,6 @@ $(document).ready(function() {
             console.log("delete success")
         })
     }
-
-
-
-
-
 
 
 })

@@ -1,0 +1,14 @@
+<div class="container">
+{{#each Parts}}
+    <div class="card mt-3">
+        <h5 class="card-header">{{this.status}}<a data-_id="{{this._id}}" href="" role="button" class="float-right deletePartBtn">X</a></h5>
+        <div class="card-body">
+            <h5 class="card-title">{{this.part}}</h5>
+            <p class="card-text">{{this.note}}</p>
+            <a href="{{this.link}}" role="button" class="btn btn-primary">View part</a>
+            <a data-_id="{{this._id}}" role="button" class="btn btn-primary float-right ml-2 toDoBtn">Move to "to-do"</a>
+            <a data-_id="{{this._id}}" role="button" class="btn btn-primary float-right ml-2 toProgressBtn">Move to "in progress"</a>
+        </div>
+    </div>
+{{/each}}
+</div>
