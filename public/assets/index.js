@@ -46,7 +46,12 @@ $(document).ready(function() {
         // console.log(thisID);
         deletePart(thisID);
         location.reload()
-    });    
+    });
+    
+    $(document).on("click", ".dropdown-item", function() {
+        var thisItem = $(this).text();
+        console.log(thisItem);
+    });
 
 
 
