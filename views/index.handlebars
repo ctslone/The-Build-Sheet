@@ -1,4 +1,18 @@
 <div class="container">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Category
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Drivetrain</a>
+            <a class="dropdown-item" href="#">Wheelse/Tires/Suspension</a>
+            <a class="dropdown-item" href="#">Exterior Styling</a>
+            <a class="dropdown-item" href="#">Interior</a>
+            <a class="dropdown-item" href="#">Lighting</a>
+            <a class="dropdown-item" href="#">Audio</a>
+        </div>
+    </div>
 {{#each Parts}}
     <div class="card mt-3">
         <h5 class="card-header">{{this.status}}<a data-_id="{{this._id}}" href="" role="button" class="float-right deletePartBtn">X</a></h5>
