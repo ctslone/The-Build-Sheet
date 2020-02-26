@@ -25,7 +25,7 @@ require("./routes/buildRoutes")(app);
 
 // connect to mongoDB using mongoose
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/buildsheetdb"
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.get("/", function(req, res) {
     db.Parts.find({status: "To Do"}).then(function(showAllTodo) {
@@ -35,5 +35,5 @@ app.get("/", function(req, res) {
 })
 
 app.listen(PORT, function () {
-    console.log("App running on port 3000!");
+    console.log("App running on port " + PORT);
 });
