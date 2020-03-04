@@ -47,10 +47,12 @@ $(document).ready(function() {
         deletePart(thisID);
         location.reload()
     });
-    
+
+    // Need to get the filter connected to the json response already being sent to the handlebars page and not make another request to the db
     $(document).on("click", ".dropdown-item", function() {
         var thisItem = $(this).text();
-        console.log(thisItem);
+        var thisStatus = $(this).id().text()
+        console.log(thisItem + thisStatus);
     });
 
 
