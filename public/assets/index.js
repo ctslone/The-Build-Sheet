@@ -12,12 +12,11 @@ $(document).ready(function() {
         $.ajax({
             url: "/addPart",
             data: newPartObject,
-            type: "POST"
-        });
-        console.log("add part success")
-        location.reload()
+            type: "POST",
+            success: location.reload()
+        })
+        // console.log("add part success")
         
-
     })
 
     $(document).on("click", ".toDoBtn", function() {
