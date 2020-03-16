@@ -42,7 +42,7 @@ module.exports = function (app) {
         })
     })
 
-    app.put("/movetodone/:id", function(req, res) {
+    app.put("/movetocomplete/:id", function(req, res) {
         db.Parts.findByIdAndUpdate({_id: req.params.id}, {$set: {status: "Done"}}, {useFindAndModify: false})
         .catch(function(err) {
             if(err) {

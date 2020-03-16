@@ -29,21 +29,18 @@ $(document).ready(function() {
 
     $(document).on("click", ".toProgressBtn", function() {
         var thisID = $(this).attr("data-_id");
-        // console.log(thisID);
         moveToProgress(thisID);
         location.reload()
     });
 
     $(document).on("click", ".toDoneBtn", function() {
         var thisID = $(this).attr("data-_id");
-        // console.log(thisID);
         moveToDone(thisID);
         location.reload()
     });
 
     $(document).on("click", ".deletePartBtn", function() {
         var thisID = $(this).attr("data-_id");
-        // console.log(thisID);
         deletePart(thisID);
         location.reload()
     });
@@ -80,7 +77,7 @@ $(document).ready(function() {
 
     function moveToDone(partID) {
         $.ajax({
-            url: "/movetodone/" + partID,
+            url: "/movetocomplete/" + partID,
             type: "PUT"
         }).then(function(data) {
             console.log("to done success")

@@ -29,7 +29,6 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
 
 app.get("/", function(req, res) {
     db.Parts.find({status: "To Do"}).then(function(showAllTodo) {
-        console.log("ALLTHINGS: " + showAllTodo)
         res.render("index", {Parts: showAllTodo})
     })
 })
