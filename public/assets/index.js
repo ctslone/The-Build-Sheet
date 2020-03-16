@@ -47,8 +47,10 @@ $(document).ready(function() {
     // Need to get the filter connected to the json response already being sent to the handlebars page and not make another request to the db
     $(document).on("click", ".dropdown-item", function() {
         var thisItem = $(this).text();
-        var thisStatus = $(this).id().text()
-        console.log(thisItem + thisStatus);
+        var thisStatus = $(this).attr("id")
+        console.log("ITEM: " + thisItem + " STATUS: " + thisStatus);
+        filterBy(thisStatus, thisItem);
+        // location.reload()
     });
 
 
@@ -89,6 +91,15 @@ $(document).ready(function() {
             type: "DELETE"
         }).then(function(data) {
             console.log("delete success")
+        })
+    }
+
+    function filterBy(status, type) {
+        $.ajax({
+            url: "/filterby/" + status + "/" + type,
+            type: "GET"
+        }).then(function(data) {
+            // location.reload(data)
         })
     }
 

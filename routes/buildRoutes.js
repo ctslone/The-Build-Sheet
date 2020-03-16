@@ -61,5 +61,24 @@ module.exports = function (app) {
             return res
         })
     })
+
+    app.get("/filterby/:status/:type", function(req, res) {
+        console.log("INSIEDE FILTER")
+        // console.log(req.params.type + req.params.status)
+        db.Parts.find({
+            status: req.params.status,
+            partType: req.params.type
+        })
+        // .catch(function(err) {
+        //     if(err) {
+        //         console.log("Error: " + err)
+        //     }
+        // })
+        .then(function(data) {
+            // res.redirect("http://localhost:3000/viewprogress")
+            // res.render("index", {Parts: data})
+            console.log("FILTERED DATA: " + data) 
+        })
+    })
     
 }

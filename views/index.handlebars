@@ -1,24 +1,26 @@
 <div class="container">
-    {{!-- <div class="dropdown">
+    <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Category
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" id="{{Parts.0.status}}" href="#">All Items</a>
-            <a class="dropdown-item" id="{{Parts.0.status}}" href="#">Drivetrain</a>
-            <a class="dropdown-item" id="{{Parts.0.status}}" href="#">Wheels/Tires/Suspension</a>
-            <a class="dropdown-item" id="{{Parts.0.status}}" href="#">Exterior Styling</a>
-            <a class="dropdown-item" id="{{Parts.0.status}}" href="#">Interior</a>
-            <a class="dropdown-item" id="{{Parts.0.status}}" href="#">Lighting</a>
-            <a class="dropdown-item" id="{{Parts.0.status}}" href="#">Audio</a>
+            <a class="dropdown-item" id="{{Parts.0.status}}" >All Items</a>
+            <a class="dropdown-item" id="{{Parts.0.status}}" >Drivetrain</a>
+            <a class="dropdown-item" id="{{Parts.0.status}}" >Wheels/Tires/Suspension</a>
+            <a class="dropdown-item" id="{{Parts.0.status}}" >Exterior Styling</a>
+            <a class="dropdown-item" id="{{Parts.0.status}}" >Interior</a>
+            <a class="dropdown-item" id="{{Parts.0.status}}" >Lighting</a>
+            <a class="dropdown-item" id="{{Parts.0.status}}" >Audio</a>
         </div>
-    </div> --}}
+    </div>
+    {{!-- so this page is already getting all data. when a dropdown is selected, need to only display the parts with the category selected  --}}
 {{#each Parts}}
     <div class="card mt-3">
         <h5 class="card-header">{{this.status}}<a data-_id="{{this._id}}" href="" role="button" class="float-right deletePartBtn">X</a></h5>
         <div class="card-body">
             <h5 class="card-title">{{this.part}}</h5>
+            <h5 class="card-title">{{this.partType}}</h5>
             <p class="card-text">{{this.note}}</p>
             <a href="{{this.link}}" role="button" class="btn btn-primary">View part</a>
             <a data-_id="{{this._id}}" role="button" class="btn btn-primary float-right ml-2 toProgressBtn">Move to "in progress"</a>
