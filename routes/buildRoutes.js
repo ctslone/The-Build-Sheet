@@ -11,13 +11,15 @@ module.exports = function (app) {
     });
     
     app.get("/viewprogress", function(req, res) {
-        db.Parts.find({status: "In Progress"}).then(function(showAllProgress) {
+        db.Parts.find({status: "In Progress"})
+        .then(function(showAllProgress) {
             res.render("progress", {Parts: showAllProgress})
         })
     });
 
     app.get("/viewdone", function(req, res) {
-        db.Parts.find({status: "Done"}).then(function(showAllDone) {
+        db.Parts.find({status: "Done"})
+        .then(function(showAllDone) {
             res.render("complete", {Parts: showAllDone})
         })
     });
@@ -64,21 +66,24 @@ module.exports = function (app) {
 
     app.get("/filterby/:status/:type", function(req, res) {
         console.log("INSIEDE FILTER")
-        // console.log(req.params.type + req.params.status)
         db.Parts.find({
             status: req.params.status,
             partType: req.params.type
-        })
-        // .catch(function(err) {
-        //     if(err) {
-        //         console.log("Error: " + err)
-        //     }
-        // })
-        .then(function(data) {
-            // res.redirect("http://localhost:3000/viewprogress")
+        }).then(function(data) {
+            console.log("THIS IS DATA "+ data)
             // res.render("index", {Parts: data})
-            console.log("FILTERED DATA: " + data) 
-        })
+            switch (req.params.status) {
+                case "To Do":
+                    res.render("index", {Parts: data})
+                break;
+                case "In Progress":
+                    res.render("progress", {Parts: data})
+                break;
+                case "Done":
+                    res.render("complete", {Parts: data})
+                break;
+            }
+        }) 
     })
     
 }

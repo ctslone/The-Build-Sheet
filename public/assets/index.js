@@ -41,17 +41,17 @@ $(document).ready(function() {
     $(document).on("click", ".deletePartBtn", function() {
         var thisID = $(this).attr("data-_id");
         deletePart(thisID);
-        location.reload()
     });
 
     // Need to get the filter connected to the json response already being sent to the handlebars page and not make another request to the db
-    $(document).on("click", ".dropdown-item", function() {
-        var thisItem = $(this).text();
-        var thisStatus = $(this).attr("id")
-        console.log("ITEM: " + thisItem + " STATUS: " + thisStatus);
-        filterBy(thisStatus, thisItem);
-        // location.reload()
-    });
+    // NEED??
+    // $(document).on("click", ".dropdown-item", function() {
+    //     var thisItem = $(this).text();
+    //     var thisStatus = $(this).attr("id")
+    //     console.log("ITEM: " + thisItem + " STATUS: " + thisStatus);
+    //     // filterBy(thisStatus, thisItem);
+    //     // location.reload()
+    // });
 
 
 
@@ -88,20 +88,19 @@ $(document).ready(function() {
     function deletePart(partID) {
         $.ajax({
             url: "/deletepart/" + partID,
-            type: "DELETE"
+            type: "DELETE",
+            success: location.reload()
         }).then(function(data) {
             console.log("delete success")
         })
     }
 
-    function filterBy(status, type) {
-        $.ajax({
-            url: "/filterby/" + status + "/" + type,
-            type: "GET"
-        }).then(function(data) {
-            // location.reload(data)
-        })
-    }
+    // function filterBy(status, type, cb) {
+    //     $.ajax({
+    //         url: "/filterby/" + status + "/" + type,
+    //         type: "GET"
+    //     })
+    // }
 
 
 })
