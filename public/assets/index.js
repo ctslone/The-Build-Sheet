@@ -45,13 +45,15 @@ $(document).ready(function() {
 
     // Need to get the filter connected to the json response already being sent to the handlebars page and not make another request to the db
     // NEED??
-    // $(document).on("click", ".dropdown-item", function() {
-    //     var thisItem = $(this).text();
-    //     var thisStatus = $(this).attr("id")
-    //     console.log("ITEM: " + thisItem + " STATUS: " + thisStatus);
-    //     // filterBy(thisStatus, thisItem);
-    //     // location.reload()
-    // });
+    $(document).on("click", ".dropdown-item", function() {
+        var newText = $(this).text();
+        console.log($(this).parents().find("button.thisone").text());
+        $(this).parents().find("button.thisone").text(newText)
+        // var thisStatus = $(this).attr("id")
+        // console.log("ITEM: " + thisItem + " STATUS: " + thisStatus);
+        // filterBy(thisStatus, thisItem);
+        // location.reload()
+    });
 
 
 
