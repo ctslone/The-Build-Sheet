@@ -1,5 +1,6 @@
 var db = require("../models");
 module.exports = function (app) {
+    // route for adding part to db
     app.post("/addPart", function(req,res) {
         db.Parts.create({part: req.body.part, link: req.body.link, partType: req.body.type, note: req.body.note, status: req.body.status})
         .catch(function(err) {
@@ -9,14 +10,14 @@ module.exports = function (app) {
             return res
         })
     });
-    
+    // view the parts in progress
     app.get("/viewprogress", function(req, res) {
         db.Parts.find({status: "In Progress"})
         .then(function(showAllProgress) {
             res.render("progress", {Parts: showAllProgress})
         })
     });
-
+    // view the installed parts
     app.get("/viewdone", function(req, res) {
         db.Parts.find({status: "Done"})
         .then(function(showAllDone) {
@@ -63,7 +64,8 @@ module.exports = function (app) {
             return res
         })
     })
-
+    // fitlters part by the type. functions on all 3 different status pages.
+    // grabs new data using url params and re renders the page...
     app.get("/filterby/:status/:type", function(req, res) {
         console.log("INSIEDE FILTER")
         db.Parts.find({

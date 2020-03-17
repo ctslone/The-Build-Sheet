@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    // adding a part to the database from the modal form
     $(document).on("click", ".addPartBtn", function() {
         // console.log("add btn");
         var newPartObject = {
@@ -8,55 +9,47 @@ $(document).ready(function() {
             note: $(".modal-body  #inputComment").val().trim(),
             status: $(".modal-body #statusSelect").val().trim()
         }
-        // console.log(newPartObject)
+        // route request to add the part
         $.ajax({
             url: "/addPart",
             data: newPartObject,
             type: "POST",
             success: location.reload()
         })
-        // console.log("add part success")
         
     })
 
+    // moves a part to the to do section by changing the status in the db
     $(document).on("click", ".toDoBtn", function() {
         var thisID = $(this).attr("data-_id");
         // console.log(thisID);
         moveToDo(thisID);
         location.reload()
     });
-
+    // moves part to progress section. calls function
     $(document).on("click", ".toProgressBtn", function() {
         var thisID = $(this).attr("data-_id");
         moveToProgress(thisID);
         location.reload()
     });
-
+    // moves part to done section. calls function
     $(document).on("click", ".toDoneBtn", function() {
         var thisID = $(this).attr("data-_id");
         moveToDone(thisID);
         location.reload()
     });
-
+    // delete part from db by calling function
     $(document).on("click", ".deletePartBtn", function() {
         var thisID = $(this).attr("data-_id");
         deletePart(thisID);
     });
-
-    // Need to get the filter connected to the json response already being sent to the handlebars page and not make another request to the db
-    // NEED??
+    // changing the dropdown text to show current filter
+    // problem...happens too early and when the new page reloads, it overwrites the updated text and just says "filter". need to re work routes probably 
     $(document).on("click", ".dropdown-item", function() {
         var newText = $(this).text();
         console.log($(this).parents().find("button.thisone").text());
         $(this).parents().find("button.thisone").text(newText)
-        // var thisStatus = $(this).attr("id")
-        // console.log("ITEM: " + thisItem + " STATUS: " + thisStatus);
-        // filterBy(thisStatus, thisItem);
-        // location.reload()
     });
-
-
-
 
 
 
@@ -69,6 +62,7 @@ $(document).ready(function() {
             console.log("changed to do")
         })
     }
+
     function moveToProgress(partID) {
         $.ajax({
             url: "/movetoinprogress/" + partID,
@@ -96,13 +90,6 @@ $(document).ready(function() {
             console.log("delete success")
         })
     }
-
-    // function filterBy(status, type, cb) {
-    //     $.ajax({
-    //         url: "/filterby/" + status + "/" + type,
-    //         type: "GET"
-    //     })
-    // }
 
 
 })
