@@ -25,6 +25,13 @@ module.exports = function (app) {
         })
     });
 
+    app.get("/viewall", function(req, res) {
+        db.Parts.find({})
+        .then(function(showAll) {
+            res.render("viewall", {Parts: showAll})
+        })
+    })
+
     app.put("/movetodone/:id", function(req, res) {
         db.Parts.findByIdAndUpdate({_id: req.params.id}, {$set: {status: "To Do"}}, {useFindAndModify: false})
         .catch(function(err) {
@@ -66,25 +73,24 @@ module.exports = function (app) {
     })
     // fitlters part by the type. functions on all 3 different status pages.
     // grabs new data using url params and re renders the page...
-    app.get("/filterby/:status/:type", function(req, res) {
+    app.get("/filterby/:type", function(req, res) {
         console.log("INSIEDE FILTER")
         db.Parts.find({
-            status: req.params.status,
             partType: req.params.type
         }).then(function(data) {
             console.log("THIS IS DATA "+ data)
-            // res.render("index", {Parts: data})
-            switch (req.params.status) {
-                case "To Do":
-                    res.render("index", {Parts: data})
-                break;
-                case "In Progress":
-                    res.render("progress", {Parts: data})
-                break;
-                case "Done":
-                    res.render("complete", {Parts: data})
-                break;
-            }
+            res.render("viewall", {Parts: data})
+            // switch (req.params.status) {
+            //     case "To Do":
+            //         res.render("index", {Parts: data})
+            //     break;
+            //     case "In Progress":
+            //         res.render("progress", {Parts: data})
+            //     break;
+            //     case "Done":
+            //         res.render("complete", {Parts: data})
+            //     break;
+            // }
         }) 
     })
     

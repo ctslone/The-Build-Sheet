@@ -1,20 +1,18 @@
 <div class="container">
-    <!--
-        <div class="dropdown mt-3">
+    <div class="dropdown mt-3">
         <button class="btn btn-secondary dropdown-toggle thisone" type="button" id="filterDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</button>
-        <h3 id="filterText">Currently Viewing: {{Parts.0.partType}}</h3>
+        <h3 id="filterText">Currently Viewing: All</h3>
         <div class="dropdown-menu" aria-labelledby="filterDropdown">
-            <a class="dropdown-item" id="{{Parts.0.status}}" href="/">All Items</a>
-            <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/To%20Do/Drivetrain" >Drivetrain</a>
-            <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/To%20Do/Suspension" >Suspension</a>
-            <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/To%20Do/Wheels%20and%20Tires">Wheels and Tires</a>
-            <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/To%20Do/Exterior%20Styling">Exterior Styling</a>
-            <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/To%20Do/Interior">Interior</a>
-            <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/To%20Do/Lighting">Lighting</a>
-            <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/To%20Do/Audio">Audio</a>
+            <a class="dropdown-item" id="{{Parts.0.status}}" href="/viewall">All Items</a>
+            <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/Drivetrain" >Drivetrain</a>
+            <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/Suspension" >Suspension</a>
+            <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/Wheels%20and%20Tires">Wheels and Tires</a>
+            <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/Exterior%20Styling">Exterior Styling</a>
+            <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/Interior">Interior</a>
+            <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/Lighting">Lighting</a>
+            <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/Audio">Audio</a>
         </div>
     </div>
-    -->
 {{#each Parts}}
     <div class="card mt-3">
         <h5 class="card-header">{{this.status}}<a data-_id="{{this._id}}" href="" role="button" class="float-right deletePartBtn">X</a></h5>

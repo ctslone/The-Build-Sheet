@@ -47,8 +47,10 @@ $(document).ready(function() {
     // problem...happens too early and when the new page reloads, it overwrites the updated text and just says "filter". need to re work routes probably 
     $(document).on("click", ".dropdown-item", function() {
         var newText = $(this).text();
-        console.log($(this).parents().find("button.thisone").text());
-        $(this).parents().find("button.thisone").text(newText)
+        // console.log($(this).parents().find("button.thisone").text());
+        // $(this).parents().find("button.thisone").text(newText)
+        setTimeout(function(){ alert("hello") }, 3000)
+        
     });
 
 
