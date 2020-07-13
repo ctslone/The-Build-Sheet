@@ -25,6 +25,13 @@ module.exports = function (app) {
         })
     });
 
+    app.get("/viewall", function(req, res) {
+        db.Parts.find({})
+        .then(function(showAll) {
+            res.render("viewall", {Parts: showAll})
+        })
+    })
+
     app.put("/movetodone/:id", function(req, res) {
         db.Parts.findByIdAndUpdate({_id: req.params.id}, {$set: {status: "To Do"}}, {useFindAndModify: false})
         .catch(function(err) {
