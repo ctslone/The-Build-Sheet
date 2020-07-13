@@ -79,7 +79,7 @@ module.exports = function (app) {
             partType: req.params.type
         }).then(function(data) {
             console.log("THIS IS DATA "+ data)
-            res.render("index", {Parts: data})
+            res.render("viewall", {Parts: data})
             // switch (req.params.status) {
             //     case "To Do":
             //         res.render("index", {Parts: data})
