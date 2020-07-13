@@ -1,10 +1,11 @@
 <div class="container">
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+    <div class="dropdown mt-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="filterDropdown" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Filter
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <h3 id="filterText">Currently Viewing: {{Parts.0.partType}}</h3>
+        <div class="dropdown-menu" aria-labelledby="filterDropdown">
             <a class="dropdown-item" id="{{Parts.0.status}}" href="/viewprogress">All Items</a>
             <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/In%20Progress/Drivetrain" >Drivetrain</a>
             <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/In%20Progress/Drivetrain">Wheels/Tires/Suspension</a>
@@ -13,7 +14,9 @@
             <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/In%20Progress/Lighting">Lighting</a>
             <a class="dropdown-item" id="{{Parts.0.status}}" href="/filterby/In%20Progress/Audio">Audio</a>
         </div>
+        
     </div>
+    
     {{#each Parts}}
     <div class="card mt-3">
         <h5 class="card-header">{{this.status}}<a data-_id="{{this._id}}" href="" role="button"

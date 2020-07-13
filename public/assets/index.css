@@ -13,3 +13,8 @@ body {
     color: red;
     transform: scale(1.2);
 }
+
+#filterText {
+    color: white;
+    display: inline-block;
+}
